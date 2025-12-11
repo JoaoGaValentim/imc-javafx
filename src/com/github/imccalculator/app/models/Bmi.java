@@ -27,7 +27,7 @@ public class Bmi {
         return weight / (height * height);
     }
 
-    public void showBmiResult(Stage stage, Scene scene, URL css) {
+    public void showBmiResultScreen(Stage stage, Scene scene, URL css) {
         double bmi = getBMI();
         if (bmi < 18.5) {
             Result resultLow = new Result(bmi,

@@ -84,7 +84,7 @@ public class Form extends VBox {
             var height = Double.parseDouble(fieldHeight.getText().replace(",", "."));
             var weight = Double.parseDouble(fieldWeight.getText().replace(",", "."));
             Bmi bmi = new Bmi(height, weight);
-            bmi.showBmiResult(stage, scene, css);
+            bmi.showBmiResultScreen(stage, scene, css);
         });
 
         cancelCalculateBMIButton.setOnAction(e -> {
