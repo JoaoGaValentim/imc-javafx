@@ -7,6 +7,13 @@ import com.github.imccalculator.app.components.Result;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * This class aggroup all BMI logic
+ * </p>
+ * 
+ * @author João Gabriel Valentim Theodoro
+ * @version 1.0
+ */
 public class Bmi {
     private final double height;
     private final double weight;

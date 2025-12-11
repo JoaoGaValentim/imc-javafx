@@ -8,6 +8,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
+/**
+ * This component load a informative card
+ * </p>
+ * 
+ * @author João Gabriel Valentim Theodoro
+ * @version 1.0
+ */
 public class Card extends VBox {
     public Card(String title, String text) {
         Label titleLabel = new Label(title);

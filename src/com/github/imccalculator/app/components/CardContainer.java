@@ -5,6 +5,13 @@ import com.github.imccalculator.app.models.Icons;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 
+/**
+ * This component load anad aggroup cards
+ * </p>
+ * 
+ * @author João Gabriel Valentim Theodoro
+ * @version 1.0
+ */
 public class CardContainer extends GridPane {
     public CardContainer() {
         Card low = new Card(Icons.WARNING, "Abaixo do peso", "IMC de 0 a 18.4");

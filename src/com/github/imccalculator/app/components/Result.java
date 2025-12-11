@@ -11,6 +11,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * This component show result
+ * </p>
+ * 
+ * @author João Gabriel Valentim Theodoro
+ * @version 1.0
+ */
 public class Result extends VBox {
     public Result(String alertText, Icons icon, String classCss, Stage stage, Scene main) {
         getStyleClass().add(classCss);

@@ -14,6 +14,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * This component create a form to calculate BMI
+ * </p>
+ * 
+ * @author João Gabriel Valentim Theodoro
+ * @version 1.0
+ */
 public class Form extends VBox {
     private final Label formTitle;
     private final Label formInstructions;

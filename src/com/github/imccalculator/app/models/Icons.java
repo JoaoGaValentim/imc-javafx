@@ -1,5 +1,12 @@
 package com.github.imccalculator.app.models;
 
+/**
+ * This enum aggroup icons sequence
+ * </p>
+ * 
+ * @author João Gabriel Valentim Theodoro
+ * @version 1.0
+ */
 public enum Icons {
     WARNING("https://static.vecteezy.com/system/resources/thumbnails/012/042/301/small/warning-sign-icon-transparent-background-free-png.png"),
     SUCCESS("https://cdn-icons-png.flaticon.com/512/7518/7518748.png"),
