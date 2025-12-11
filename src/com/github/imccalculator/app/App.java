@@ -44,6 +44,7 @@ public class App extends Application {
 
         scene.getStylesheets().add(CSS_URL);
         primarStage.setScene(scene);
+        primarStage.setResizable(false);
         primarStage.show();
     }
 
