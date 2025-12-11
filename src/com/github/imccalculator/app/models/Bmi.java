@@ -1,5 +1,7 @@
 package com.github.imccalculator.app.models;
 
+import java.net.URL;
+
 import com.github.imccalculator.app.components.Result;
 
 import javafx.scene.Scene;
@@ -18,7 +20,7 @@ public class Bmi {
         return weight / (height * height);
     }
 
-    public void showBmiResult(Stage stage, Scene scene, String css) {
+    public void showBmiResult(Stage stage, Scene scene, URL css) {
         double bmi = getBMI();
         if (bmi < 18.5) {
             Result resultLow = new Result(bmi,
@@ -30,7 +32,7 @@ public class Bmi {
             Scene lowScene = new Scene(resultLow, 1000, 630);
             stage.setScene(lowScene);
 
-            lowScene.getStylesheets().add(css);
+            lowScene.getStylesheets().add(css.toExternalForm());
         }
 
         if (bmi >= 18.5 && bmi <= 25) {
@@ -43,7 +45,7 @@ public class Bmi {
             Scene lowScene = new Scene(resultLow, 1000, 630);
             stage.setScene(lowScene);
 
-            lowScene.getStylesheets().add(css);
+            lowScene.getStylesheets().add(css.toExternalForm());
         }
 
         if (bmi >= 25 && bmi < 30) {
@@ -56,7 +58,7 @@ public class Bmi {
             Scene lowScene = new Scene(resultLow, 1000, 630);
             stage.setScene(lowScene);
 
-            lowScene.getStylesheets().add(css);
+            lowScene.getStylesheets().add(css.toExternalForm());
         }
 
         if (bmi >= 30) {
@@ -69,7 +71,7 @@ public class Bmi {
             Scene lowScene = new Scene(resultLow, 1000, 630);
             stage.setScene(lowScene);
 
-            lowScene.getStylesheets().add(css);
+            lowScene.getStylesheets().add(css.toExternalForm());
         }
     }
 }

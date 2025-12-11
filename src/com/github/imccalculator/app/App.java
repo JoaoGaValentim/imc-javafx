@@ -1,5 +1,7 @@
 package com.github.imccalculator.app;
 
+import java.net.URL;
+
 import com.github.imccalculator.app.components.CardContainer;
 import com.github.imccalculator.app.components.Form;
 import com.github.imccalculator.app.components.Header;
@@ -18,8 +20,6 @@ import javafx.stage.Stage;
  * @version 1.0
  */
 public class App extends Application {
-    private static final String CSS_URL = "file:///Volumes/SSD_240G/udemy/java-basic/imc-calculator/src/com/github/imccalculator/resources/style.css";
-
     @Override
     public void start(Stage primarStage) throws Exception {
         primarStage.setTitle("Calculadora IMC");
@@ -40,9 +40,16 @@ public class App extends Application {
 
         Scene scene = new Scene(container, 1000, 630);
 
+        final URL CSS_URL = getClass().getResource("resources/style.css");
+
+        if (CSS_URL == null) {
+            System.err.println("Fatal Error: style.css not found in resources.");
+            throw new RuntimeException("Stylesheet not found.");
+        }
+
         form.initializeActionHandlers(primarStage, scene, CSS_URL);
 
-        scene.getStylesheets().add(CSS_URL);
+        scene.getStylesheets().add(CSS_URL.toExternalForm());
         primarStage.setScene(scene);
         primarStage.setResizable(false);
         primarStage.show();

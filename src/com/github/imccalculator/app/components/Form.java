@@ -1,5 +1,7 @@
 package com.github.imccalculator.app.components;
 
+import java.net.URL;
+
 import com.github.imccalculator.app.models.Bmi;
 import com.github.imccalculator.app.models.Icons;
 
@@ -56,7 +58,7 @@ public class Form extends VBox {
         setSpacing(20);
     }
 
-    public void initializeActionHandlers(Stage stage, Scene scene, String css) {
+    public void initializeActionHandlers(Stage stage, Scene scene, URL css) {
         calculateBMIButton.setOnAction(e -> {
             if (fieldHeight.getText().isEmpty() || fieldWeight.getText().isEmpty()) {
                 Result validationResult = new Result(
@@ -67,7 +69,7 @@ public class Form extends VBox {
                         scene);
 
                 Scene validationScene = new Scene(validationResult, 1000, 630);
-                validationResult.getStylesheets().add(css);
+                validationResult.getStylesheets().add(css.toExternalForm());
                 stage.setScene(validationScene);
                 return;
             }
