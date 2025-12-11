@@ -56,64 +56,26 @@ public class Form extends VBox {
         setSpacing(20);
     }
 
-    public void loadActionsOn(Stage stage, Scene scene, String css) {
+    public void initializeActionHandlers(Stage stage, Scene scene, String css) {
         calculateBMIButton.setOnAction(e -> {
-            var height = Double.parseDouble(fieldHeight.getText().replace(",", "."));
-            var weight = Double.parseDouble(fieldWeight.getText().replace(",", "."));
-
-            var bmi = new Bmi(height, weight).getBmiResult();
-
-            if (bmi < 18.5) {
-                Result resultLow = new Result(bmi,
-                        "Você está abaixo do peso",
+            if (fieldHeight.getText().isEmpty() || fieldWeight.getText().isEmpty()) {
+                Result validationResult = new Result(
+                        "Favor preencher todos os campos!",
                         Icons.WARNING,
                         "low",
                         stage,
                         scene);
-                Scene lowScene = new Scene(resultLow, 1000, 630);
-                stage.setScene(lowScene);
 
-                lowScene.getStylesheets().add(css);
+                Scene validationScene = new Scene(validationResult, 1000, 630);
+                validationResult.getStylesheets().add(css);
+                stage.setScene(validationScene);
+                return;
             }
 
-            if (bmi >= 18.5 && bmi <= 25) {
-                Result resultLow = new Result(bmi,
-                        "Peso normal",
-                        Icons.SUCCESS,
-                        "normal",
-                        stage,
-                        scene);
-                Scene lowScene = new Scene(resultLow, 1000, 630);
-                stage.setScene(lowScene);
-
-                lowScene.getStylesheets().add(css);
-            }
-
-            if (bmi >= 25 && bmi < 30) {
-                Result resultLow = new Result(bmi,
-                        "Sobrepeso",
-                        Icons.WARNING,
-                        "high",
-                        stage,
-                        scene);
-                Scene lowScene = new Scene(resultLow, 1000, 630);
-                stage.setScene(lowScene);
-
-                lowScene.getStylesheets().add(css);
-            }
-
-            if (bmi >= 30) {
-                Result resultLow = new Result(bmi,
-                        "Obesidade",
-                        Icons.ERROR,
-                        "vary-high",
-                        stage,
-                        scene);
-                Scene lowScene = new Scene(resultLow, 1000, 630);
-                stage.setScene(lowScene);
-
-                lowScene.getStylesheets().add(css);
-            }
+            var height = Double.parseDouble(fieldHeight.getText().replace(",", "."));
+            var weight = Double.parseDouble(fieldWeight.getText().replace(",", "."));
+            Bmi bmi = new Bmi(height, weight);
+            bmi.showBmiResult(stage, scene, css);
         });
 
         cancelCalculateBMIButton.setOnAction(e -> {

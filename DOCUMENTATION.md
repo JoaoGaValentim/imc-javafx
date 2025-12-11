@@ -98,9 +98,12 @@ The input form component where users enter their data.
 
 **Key Methods:**
 - `loadActionsOn(Stage stage, Scene scene, String css)`: Sets up event handlers
+ - `initializeActionHandlers(Stage stage, Scene scene, String css)`: Sets up event handlers (note: method name changed)
   - Parses user input
   - Calculates BMI using formula: `BMI = weight / (height × height)`
   - Displays appropriate result based on BMI category
+
+**Validation behavior:** The updated `Form` implementation performs a basic empty-field check and displays a validation `Result` (alert-only) if fields are missing instead of throwing an exception.
 
 #### 4. **Card.java**
 A reusable component for displaying information in card format.
@@ -149,6 +152,16 @@ An enumeration containing URLs for status icons.
 - `ERROR`: Error icon for obesity
 
 Each icon is loaded from external CDN resources as PNG images.
+
+#### Bmi.java
+
+`Bmi.java` is a model that encapsulates BMI calculation and result routing. Key points:
+
+- Constructor: `new Bmi(double heightMeters, double weightKg)`
+- Calculates BMI value with `weight / (height * height)`
+- Provides a helper `showBmiResult(Stage stage, Scene scene, String css)` which builds the appropriate `Result` scene (category-specific) and switches the stage to that scene.
+
+This moves result construction logic out of the `Form` and into a reusable model class.
 
 ### Styling
 

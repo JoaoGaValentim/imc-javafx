@@ -12,6 +12,30 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Result extends VBox {
+    public Result(String alertText, Icons icon, String classCss, Stage stage, Scene main) {
+        getStyleClass().add(classCss);
+
+        Image img = new Image(icon.getIconUrl());
+        ImageView view = new ImageView(img);
+        view.setFitHeight(70);
+        view.setFitWidth(70);
+
+        Label resultTextLabel = new Label("Atenção");
+        Label alertTextLabel = new Label(alertText);
+
+        Button back = new Button("Calcular novamente");
+
+        back.setOnAction(e -> {
+            stage.setScene(main);
+        });
+
+        resultTextLabel.getStyleClass().add("card-title");
+        alertTextLabel.getStyleClass().add("card-text");
+        getChildren().addAll(view, resultTextLabel, alertTextLabel, back);
+        setSpacing(20);
+        setAlignment(Pos.CENTER);
+    }
+
     public Result(double bmi, String alertText, Icons icon, String classCss, Stage stage, Scene main) {
         getStyleClass().add(classCss);
 
@@ -29,7 +53,7 @@ public class Result extends VBox {
             stage.setScene(main);
         });
 
-        resultTextLabel.getStyleClass().add("card-text");
+        resultTextLabel.getStyleClass().add("card-title");
         alertTextLabel.getStyleClass().add("card-text");
         getChildren().addAll(view, resultTextLabel, alertTextLabel, back);
         setSpacing(20);

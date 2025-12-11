@@ -216,7 +216,7 @@ private final HBox buttons;                   // Button container
 **Key Method**:
 
 ```java
-public void loadActionsOn(Stage stage, Scene scene, String css)
+public void initializeActionHandlers(Stage stage, Scene scene, String css)
 ```
 
 **Functionality**:
@@ -232,11 +232,13 @@ public void loadActionsOn(Stage stage, Scene scene, String css)
    var bmi = weight / (height * height);
    ```
 
-3. **Determine Category** (4 conditions):
+3. **Determine Category / Validation**:
    - `bmi < 18.5` → Low weight (WARNING icon)
    - `bmi >= 18.5 && bmi <= 25` → Normal (SUCCESS icon)
    - `bmi >= 25 && bmi < 30` → Overweight (WARNING icon)
    - `bmi >= 30` → Obesity (ERROR icon)
+
+Before parsing, the updated form performs a simple empty-field validation. If either input is empty the form shows a validation `Result` (alert-only) and does not attempt parsing.
 
 4. **Create and Display Result**:
    - Creates `Result` component with appropriate styling
@@ -417,6 +419,16 @@ customCard.getStyleClass().add("custom-style");
 // Card with icon
 Card iconCard = new Card(Icons.SUCCESS, "Success Title", "Success message");
 customCard.getStyleClass().add("custom-style");
+
+#### Example: Using the `Bmi` model from `Form`
+
+```java
+// inside Form.initializeActionHandlers
+double height = Double.parseDouble(fieldHeight.getText().replace(",", "."));
+double weight = Double.parseDouble(fieldWeight.getText().replace(",", "."));
+Bmi bmi = new Bmi(height, weight);
+bmi.showBmiResult(stage, scene, css);
+```
 ```
 
 #### Example 2: Extending the Application

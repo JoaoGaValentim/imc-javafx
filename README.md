@@ -122,6 +122,11 @@ The application follows the **MVC (Model-View-Controller)** pattern:
 - **View**: Components (`Header`, `Form`, `Card`, etc.) - UI elements
 - **Controller**: `Form.java`, `App.java` - Business logic and event handling
 
+Notable recent changes:
+- The project now includes a `Bmi.java` model in `models/` which encapsulates BMI calculation and result routing.
+- `Form` exposes `initializeActionHandlers(...)` (replacing the older `loadActionsOn`) and performs basic input validation before using `Bmi` to show results.
+- `Result` now has an additional constructor that can display alert-only messages (used for validation feedback).
+
 ### 🎨 Styling
 
 The application uses JavaFX CSS for styling with a modern dark theme:

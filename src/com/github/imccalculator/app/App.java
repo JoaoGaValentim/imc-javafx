@@ -40,7 +40,7 @@ public class App extends Application {
 
         Scene scene = new Scene(container, 1000, 630);
 
-        form.loadActionsOn(primarStage, scene, CSS_URL);
+        form.initializeActionHandlers(primarStage, scene, CSS_URL);
 
         scene.getStylesheets().add(CSS_URL);
         primarStage.setScene(scene);
