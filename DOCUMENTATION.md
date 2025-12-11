@@ -190,6 +190,22 @@ The application uses JavaFX CSS (`style.css`) for all visual styling.
    - Understand your category status
    - Click "Calcular novamente" to perform another calculation
 
+**Input Validation Note:**
+
+- The current `Form` implementation assumes valid numeric input and will throw a `NumberFormatException` if fields are empty or contain invalid characters. Consider validating input before parsing. Example validation:
+
+```java
+if (fieldHeight.getText().isEmpty() || fieldWeight.getText().isEmpty()) {
+   // show error to user and return
+}
+double height = Double.parseDouble(fieldHeight.getText().replace(",", "."));
+double weight = Double.parseDouble(fieldWeight.getText().replace(",", "."));
+```
+
+**Styling/CSS Note:**
+
+- If styles are not applied at runtime, verify that the `CSS_URL` constant in `App.java` points to the correct `style.css` file (use a `file:///absolute/path/to/style.css`).
+
 ### BMI Categories
 
 | Category | BMI Range | Status |

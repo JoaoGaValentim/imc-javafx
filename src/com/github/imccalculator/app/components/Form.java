@@ -1,5 +1,6 @@
 package com.github.imccalculator.app.components;
 
+import com.github.imccalculator.app.models.Bmi;
 import com.github.imccalculator.app.models.Icons;
 
 import javafx.geometry.Pos;
@@ -60,10 +61,7 @@ public class Form extends VBox {
             var height = Double.parseDouble(fieldHeight.getText().replace(",", "."));
             var weight = Double.parseDouble(fieldWeight.getText().replace(",", "."));
 
-            var bmi = weight / (height * height);
-
-            System.out.println(height);
-            System.out.println(weight);
+            var bmi = new Bmi(height, weight).getBmiResult();
 
             if (bmi < 18.5) {
                 Result resultLow = new Result(bmi,

@@ -95,6 +95,21 @@ java --module-path bin \
 java --module-path /path/to/javafx-sdk/lib:bin \
      --add-modules javafx.controls,javafx.graphics \
      -m com.github.imccalculator/com.github.imccalculator.app.App
+
+#### Example: macOS (JavaFX SDK on module path)
+
+You can export a `PATH_TO_FX` variable and run the app including JavaFX modules. Replace `/path/to/javafx-sdk/lib` with your SDK path:
+
+```bash
+export PATH_TO_FX="/path/to/javafx-sdk/lib"
+javac --module-path "$PATH_TO_FX" --add-modules javafx.controls,javafx.graphics \
+    --module-source-path src -d bin -m com.github.imccalculator
+
+java --module-path "$PATH_TO_FX:bin" --add-modules javafx.controls,javafx.graphics \
+   -m com.github.imccalculator/com.github.imccalculator.app.App
+```
+
+**Note:** If styling is missing, update `CSS_URL` in `App.java` to the absolute `file:///` path to `style.css`.
 ```
 
 ---

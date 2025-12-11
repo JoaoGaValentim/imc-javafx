@@ -56,6 +56,7 @@ com.github.imccalculator/
 │       └── Result.java             (Result display)
 ├── models/
 │   └── Icons.java                  (Icon enumeration)
+│   └── Bmi.java                    (BMI model: calculation and category)
 └── resources/
     └── style.css                   (Styling)
 ```
@@ -83,6 +84,17 @@ com.github.imccalculator/
    ```bash
    java --module-path bin -m com.github.imccalculator/com.github.imccalculator.app.App
    ```
+
+#### Run with JavaFX on macOS (example)
+
+If your system requires the JavaFX SDK on the module path (common on macOS), set the `PATH_TO_FX` variable to your JavaFX SDK `lib` folder and run:
+
+```bash
+export PATH_TO_FX="/path/to/javafx-sdk/lib"
+java --module-path "$PATH_TO_FX:bin" --add-modules javafx.controls,javafx.graphics -m com.github.imccalculator/com.github.imccalculator.app.App
+```
+
+Note: Update the `CSS_URL` constant in `App.java` to point to the correct `style.css` file on your machine if styling does not appear.
 
 ### 📖 Usage
 
@@ -173,6 +185,7 @@ com.github.imccalculator/
 │       └── Result.java             (Exibição de resultado)
 ├── models/
 │   └── Icons.java                  (Enumeração de ícones)
+│   └── Bmi.java                    (Modelo IMC: cálculo e categoria)
 └── resources/
     └── style.css                   (Estilização)
 ```
